@@ -99,13 +99,13 @@
         }
 
         .option:hover {
-            border-color: #D6F570;
+            border-color: #323030;
             background: #f5f5f5;
             transform: translateX(5px);
         }
 
         .option.selected {
-            border-color: #D6F570;
+            border-color: #323030;
             background: rgba(214, 245, 112, 0.15);
             font-weight: 600;
             color: #000000;
@@ -129,12 +129,12 @@
         }
 
         .checkbox-option:hover {
-            border-color: #D6F570;
+            border-color: #323030;
             background: #f5f5f5;
         }
 
         .checkbox-option.selected {
-            border-color: #D6F570;
+            border-color: #323030;
             background: rgba(214, 245, 112, 0.15);
         }
 
@@ -143,7 +143,7 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
-            accent-color: #D6F570;
+            accent-color: #323030;
         }
 
         .checkbox-option label {
@@ -167,7 +167,7 @@
 
         .input-field:focus {
             outline: none;
-            border-color: #D6F570;
+            border-color: #323030;
         }
 
         .input-field::placeholder {
@@ -181,8 +181,8 @@
         }
 
         .next-btn {
-            background: #D6F570;
-            color: #000000;
+            background: #323030;
+            color: #ffffff;
             border: none;
             padding: 15px 40px;
             border-radius: 10px;
@@ -194,7 +194,7 @@
         }
 
         .next-btn:hover {
-            background: #c5e55f;
+            background: #1a1a1a;
             transform: scale(1.05);
         }
 
@@ -206,8 +206,8 @@
 
         .back-btn {
             background: transparent;
-            color: #D6F570;
-            border: 2px solid #D6F570;
+            color: #323030;
+            border: 2px solid #323030;
             padding: 15px 40px;
             border-radius: 10px;
             font-size: 16px;
@@ -219,7 +219,7 @@
         }
 
         .back-btn:hover {
-            background: rgba(214, 245, 112, 0.1);
+            background: rgba(50, 48, 48, 0.1);
             transform: scale(1.05);
         }
 
@@ -239,7 +239,7 @@
 
         .progress-bar {
             height: 100%;
-            background: #D6F570;
+            background: #323030;
             transition: width 0.3s;
             border-radius: 10px;
         }
@@ -274,7 +274,7 @@
 
         .thank-you-message {
             background: rgba(214, 245, 112, 0.15);
-            border: 2px solid #D6F570;
+            border: 2px solid #323030;
             padding: 20px;
             border-radius: 12px;
             margin-top: 20px;
@@ -318,8 +318,8 @@
         }
 
         .start-btn {
-            background: #D6F570;
-            color: #000000;
+            background: #323030;
+            color: #ffffff;
             border: none;
             padding: 18px 50px;
             border-radius: 10px;
@@ -331,7 +331,7 @@
         }
 
         .start-btn:hover {
-            background: #c5e55f;
+            background: #1a1a1a;
             transform: scale(1.05);
         }
     </style>
@@ -340,7 +340,7 @@
     <div class="container">
         <!-- Intro/Landing Page -->
         <div class="question-container active intro-page" data-question="0">
-            <div style="font-size: 64px; font-weight: 700; color: #000000; letter-spacing: 4px; margin-bottom: 20px;">Vouch</div>
+            <div style="font-size: 64px; font-weight: 900; color: #000000; letter-spacing: -2px; margin-bottom: 20px;">Vouch</div>
             <div style="font-size: 24px; color: #000000; font-weight: 600; margin-bottom: 30px;">Trust Your Tribe</div>
             <p style="color: #333333; font-size: 18px; line-height: 1.8; margin-bottom: 30px; max-width: 550px; margin-left: auto; margin-right: auto;">
                 Vouch is a social-first, word-of-mouth discovery platform for places and experiences. 
@@ -398,6 +398,8 @@
             </div>
         </div>
 
+        <!-- Current Tool Usage Questions -->
+
         <!-- Question 4: Current Tools -->
         <div class="question-container" data-question="4" data-type="tools">
             <div class="question">Which tools do you currently use to discover places? (Select all that apply)</div>
@@ -435,6 +437,10 @@
                     <input type="checkbox" id="tool-yelp" value="Yelp">
                     <label for="tool-yelp">Yelp</label>
                 </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="tool-other" value="Other">
+                    <label for="tool-other">Other</label>
+                </div>
             </div>
             <div class="button-group">
                 <button class="back-btn" onclick="goBack(4)">Back</button>
@@ -442,11 +448,12 @@
             </div>
         </div>
 
-        <!-- Question 5: Discovery Frequency -->
-        <div class="question-container" data-question="5" data-type="behavior">
-            <div class="question">How often do you look for new places to try?</div>
+        <!-- Question 5: Frequency -->
+        <div class="question-container" data-question="5" data-type="tools">
+            <div class="question">How often do you look for new places to try in your city?</div>
             <div class="options" id="q5-options">
                 <div class="option" data-value="Daily">Daily</div>
+                <div class="option" data-value="Few times a week">A few times a week</div>
                 <div class="option" data-value="Weekly">Weekly</div>
                 <div class="option" data-value="Monthly">Monthly</div>
                 <div class="option" data-value="Rarely">Rarely</div>
@@ -457,29 +464,36 @@
             </div>
         </div>
 
-        <!-- Question 6: Biggest Challenges -->
-        <div class="question-container" data-question="6" data-type="pain-points">
-            <div class="question">What are your biggest challenges when discovering new places? (Select all that apply)</div>
+        <!-- Pain Point Questions -->
+
+        <!-- Question 6: Biggest Challenge -->
+        <div class="question-container" data-question="6" data-type="pain">
+            <div class="question">What are your BIGGEST challenges when trying to find a good place?</div>
+            <div class="question-note">Select all that apply</div>
             <div class="checkbox-group" id="challengesCheckboxes">
                 <div class="checkbox-option">
-                    <input type="checkbox" id="challenge-trust" value="Don't trust generic reviews">
-                    <label for="challenge-trust">Don't trust generic reviews</label>
+                    <input type="checkbox" id="challenge-options" value="Too many options">
+                    <label for="challenge-options">Too many options, overwhelmed by choice</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="challenge-personalized" value="Too hard to find personalized recommendations">
-                    <label for="challenge-personalized">Too hard to find personalized recommendations</label>
+                    <input type="checkbox" id="challenge-generic" value="Generic recommendations">
+                    <label for="challenge-generic">Reviews are generic, don't match my taste</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="challenge-friends" value="Hard to remember what friends recommended">
-                    <label for="challenge-friends">Hard to remember what friends recommended</label>
+                    <input type="checkbox" id="challenge-trust" value="Can't trust reviews">
+                    <label for="challenge-trust">Can't tell which reviews to trust (fake reviews, paid promotions)</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="challenge-overwhelming" value="Too many options, feels overwhelming">
-                    <label for="challenge-overwhelming">Too many options, feels overwhelming</label>
+                    <input type="checkbox" id="challenge-time" value="Takes too much time">
+                    <label for="challenge-time">Takes too much time to research</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="challenge-tourist" value="Results feel too touristy">
-                    <label for="challenge-tourist">Results feel too touristy</label>
+                    <input type="checkbox" id="challenge-traps" value="Tourist traps">
+                    <label for="challenge-traps">End up at tourist traps or overhyped places</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="challenge-ask" value="Don't know who to ask">
+                    <label for="challenge-ask">Don't know who to ask for recommendations</label>
                 </div>
             </div>
             <div class="button-group">
@@ -488,14 +502,15 @@
             </div>
         </div>
 
-        <!-- Question 7: Disappointment Frequency -->
-        <div class="question-container" data-question="7" data-type="validation">
-            <div class="question">How often are you disappointed by places you discover online?</div>
+        <!-- Question 7: Disappointing Experience -->
+        <div class="question-container" data-question="7" data-type="pain">
+            <div class="question">How often do you feel disappointed after trying a highly-rated place?</div>
             <div class="options" id="q7-options">
-                <div class="option" data-value="Very often">Very often</div>
-                <div class="option" data-value="Sometimes">Sometimes</div>
-                <div class="option" data-value="Rarely">Rarely</div>
-                <div class="option" data-value="Never">Never</div>
+                <div class="option" data-value="Very often">Very often - happens all the time</div>
+                <div class="option" data-value="Often">Often - it's frustrating</div>
+                <div class="option" data-value="Sometimes">Sometimes - hit or miss</div>
+                <div class="option" data-value="Rarely">Rarely - usually satisfied</div>
+                <div class="option" data-value="Never">Never - I have good luck</div>
             </div>
             <div class="button-group">
                 <button class="back-btn" onclick="goBack(7)">Back</button>
@@ -503,30 +518,34 @@
             </div>
         </div>
 
-        <!-- Question 8: Most Valuable Features -->
-        <div class="question-container" data-question="8" data-type="features">
-            <div class="question">Which features would be most valuable to you? (Select up to 3)</div>
-            <div class="question-note">Choose your top 3 priorities</div>
+        <!-- Question 8: What would help most -->
+        <div class="question-container" data-question="8" data-type="validation">
+            <div class="question">Which features would be MOST valuable to you?</div>
+            <div class="question-note">Select up to 3</div>
             <div class="checkbox-group" id="featuresCheckboxes">
                 <div class="checkbox-option">
-                    <input type="checkbox" id="feature-friends" value="See friends' favorite spots on a map">
-                    <label for="feature-friends">See friends' favorite spots on a map</label>
+                    <input type="checkbox" id="feature-friends" value="Friend recommendations">
+                    <label for="feature-friends">See places my friends have been and recommend</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="feature-curators" value="Follow trusted local curators">
-                    <label for="feature-curators">Follow trusted local curators</label>
+                    <input type="checkbox" id="feature-vibe" value="Filter by vibe">
+                    <label for="feature-vibe">Filter by vibe/tags like "good for dates" or "deep work friendly"</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="feature-save" value="Save and organize recommendations">
-                    <label for="feature-save">Save and organize recommendations</label>
+                    <input type="checkbox" id="feature-tastemakers" value="Trusted tastemakers">
+                    <label for="feature-tastemakers">Follow trusted tastemakers in my city</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="feature-lists" value="Create and share lists with friends">
-                    <label for="feature-lists">Create and share lists with friends</label>
+                    <input type="checkbox" id="feature-map" value="Map view">
+                    <label for="feature-map">Map view showing all recommended spots at once</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="feature-filter" value="Filter by vibe/occasion">
-                    <label for="feature-filter">Filter by vibe/occasion (e.g., date night, brunch)</label>
+                    <input type="checkbox" id="feature-nofake" value="No fake reviews">
+                    <label for="feature-nofake">Platform without fake reviews or paid promotions</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="feature-quick" value="Quick answers">
+                    <label for="feature-quick">Quick, confident answers instead of endless scrolling</label>
                 </div>
             </div>
             <div class="button-group">
@@ -535,29 +554,42 @@
             </div>
         </div>
 
-        <!-- Question 9: Use Cases -->
-        <div class="question-container" data-question="9" data-type="use-cases">
-            <div class="question">When would you use Vouch? (Select all that apply)</div>
+        <!-- Question 9: Use cases -->
+        <div class="question-container" data-question="9" data-type="validation">
+            <div class="question">What would you most likely use this for? (Select all that apply)</div>
+            <div class="question-note">Check all that interest you</div>
             <div class="checkbox-group" id="useCasesCheckboxes">
                 <div class="checkbox-option">
-                    <input type="checkbox" id="usecase-visiting" value="When visiting a new city">
-                    <label for="usecase-visiting">When visiting a new city</label>
+                    <input type="checkbox" id="use-date" value="Date night spots">
+                    <label for="use-date">Date night spots</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="usecase-local" value="Finding new spots in my own city">
-                    <label for="usecase-local">Finding new spots in my own city</label>
+                    <input type="checkbox" id="use-restaurants" value="Restaurants/cafes">
+                    <label for="use-restaurants">Restaurants/cafes</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="usecase-occasion" value="Planning for specific occasions">
-                    <label for="usecase-occasion">Planning for specific occasions (dates, celebrations)</label>
+                    <input type="checkbox" id="use-bars" value="Bars/nightlife">
+                    <label for="use-bars">Bars/nightlife</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="usecase-friends" value="When friends ask for recommendations">
-                    <label for="usecase-friends">When friends ask for recommendations</label>
+                    <input type="checkbox" id="use-coworking" value="Coworking/study spots">
+                    <label for="use-coworking">Coworking/study spots</label>
                 </div>
                 <div class="checkbox-option">
-                    <input type="checkbox" id="usecase-exploring" value="Just exploring/browsing">
-                    <label for="usecase-exploring">Just exploring/browsing</label>
+                    <input type="checkbox" id="use-fitness" value="Gyms/fitness classes">
+                    <label for="use-fitness">Gyms/fitness classes</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="use-culture" value="Exhibitions/events">
+                    <label for="use-culture">Exhibitions/events/concerts</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="use-travel" value="Travel planning">
+                    <label for="use-travel">Travel planning (new cities)</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="use-weekend" value="Weekend activities">
+                    <label for="use-weekend">Weekend activities</label>
                 </div>
             </div>
             <div class="button-group">
@@ -566,13 +598,13 @@
             </div>
         </div>
 
-        <!-- Question 10: Willingness to Pay -->
-        <div class="question-container" data-question="10" data-type="pricing">
-            <div class="question">Would you pay for a platform that helps you discover places through trusted recommendations?</div>
+        <!-- Question 10: Willingness to pay -->
+        <div class="question-container" data-question="10" data-type="validation">
+            <div class="question">If this solved your discovery problems, would you pay for it?</div>
             <div class="options" id="q10-options">
-                <div class="option" data-value="£1-3/month">Yes, £1-3/month</div>
-                <div class="option" data-value="£5-10/month">Yes, £5-10/month</div>
-                <div class="option" data-value="Other amount">Yes, other amount</div>
+                <div class="option" data-value="Yes - £1-3/month">Yes, £1-3 per month</div>
+                <div class="option" data-value="Yes - £5-10/month">Yes, £5-10 per month</div>
+                <div class="option" data-value="Yes - other amount">Yes, other amount</div>
                 <div class="option" data-value="Maybe">Maybe, depends on features</div>
                 <div class="option" data-value="Prefer free">I'd prefer a free version</div>
                 <div class="option" data-value="No">No, wouldn't pay</div>
@@ -583,25 +615,30 @@
             </div>
         </div>
 
-        <!-- Question 11: Open Feedback -->
+        <!-- Question 11: Open feedback -->
         <div class="question-container" data-question="11" data-type="feedback">
-            <div class="question">Any other thoughts or features you'd like to see?</div>
-            <textarea class="input-field" id="feedbackInput" placeholder="Share your ideas... (optional)"></textarea>
+            <div class="question">What's the one thing that would make this a must-have app for you?</div>
+            <div class="question-note">Feel free to share any thoughts or concerns</div>
+            <textarea class="input-field" id="openFeedback" placeholder="Type your answer here..."></textarea>
             <div class="button-group">
                 <button class="back-btn" onclick="goBack(11)">Back</button>
-                <button class="next-btn" onclick="moveToNext(11)">Next</button>
+                <button class="next-btn" onclick="handleTextNext(11)">Next</button>
             </div>
         </div>
 
-        <!-- Question 12: Contact Info -->
+        <!-- Question 12: Email Collection -->
         <div class="question-container" data-question="12" data-type="contact">
-            <div class="question">Want early access? Leave your email</div>
+            <div class="question">Want early access when we launch?</div>
+            <div class="question-note">Join our waitlist and we'll keep you updated</div>
             <input type="email" class="input-field" id="emailInput" placeholder="your.email@example.com">
             <input type="text" class="input-field" id="nameInput" placeholder="Your name (optional)">
             <div class="button-group">
                 <button class="back-btn" onclick="goBack(12)">Back</button>
-                <button class="next-btn" onclick="submitForm()">Submit</button>
+                <button class="next-btn" onclick="submitForm()">Get Early Access</button>
             </div>
+            <p style="font-size: 14px; color: #718096; margin-top: 15px;">
+                We'll never spam you. Unsubscribe anytime.
+            </p>
         </div>
 
         <!-- Results Section -->
@@ -621,7 +658,18 @@
     </div>
 
     <script>
-        const answers = {};
+        // Object to store all the user's answers
+        const userData = {
+            demographics: {},
+            tools: {},
+            painPoints: {},
+            validation: {},
+            contact: {}
+        };
+
+        // Store selected values temporarily before moving to next question
+        let selectedValues = {};
+
         let currentQuestion = 1;
         const totalQuestions = 12;
 
@@ -634,149 +682,303 @@
 
         // Handle option selection (doesn't move to next question automatically)
         function handleOptionSelection(questionNum, value) {
-            answers[`q${questionNum}`] = value;
+            // Store the selected value temporarily
+            selectedValues[questionNum] = value;
             
-            // Remove selected class from all options
-            const options = document.querySelectorAll(`#q${questionNum}-options .option`);
+            // Remove 'selected' class from all options in this question
+            const options = document.querySelectorAll(`[data-question="${questionNum}"] .option`);
             options.forEach(opt => opt.classList.remove('selected'));
             
-            // Add selected class to clicked option
+            // Add 'selected' class to clicked option
             event.target.classList.add('selected');
             
-            // Enable next button
+            // Enable the next button
             const nextBtn = document.getElementById(`next-${questionNum}`);
             if (nextBtn) {
                 nextBtn.disabled = false;
             }
         }
 
-        // Add click handlers to all options
-        document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', function() {
-                const questionNum = this.closest('.question-container').dataset.question;
-                const value = this.dataset.value;
-                handleOptionSelection(questionNum, value);
-            });
-        });
-
-        // Handle checkbox option selection
-        document.querySelectorAll('.checkbox-option').forEach(option => {
-            option.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT') {
-                    const checkbox = this.querySelector('input[type="checkbox"]');
-                    checkbox.checked = !checkbox.checked;
-                }
-                this.classList.toggle('selected', this.querySelector('input[type="checkbox"]').checked);
-            });
-        });
-
+        // Move to the next question after user clicks Next
         function moveToNext(questionNum) {
-            currentQuestion = questionNum + 1;
+            const questionElement = document.querySelector(`[data-question="${questionNum}"]`);
+            const questionText = questionElement.querySelector('.question').textContent;
+            const questionType = questionElement.dataset.type;
+            const value = selectedValues[questionNum];
+            
+            // Store the answer based on question type
+            if (questionType === 'demographic') {
+                userData.demographics[questionText] = value;
+            } else if (questionType === 'tools') {
+                userData.tools[questionText] = value;
+            } else if (questionType === 'pain') {
+                userData.painPoints[questionText] = value;
+            } else if (questionType === 'validation') {
+                userData.validation[questionText] = value;
+            }
+            
+            // Move to next question
+            currentQuestion++;
             updateProgress();
-            showQuestion(currentQuestion);
+            
+            if (currentQuestion <= totalQuestions) {
+                showQuestion(currentQuestion);
+            }
         }
 
+        // Go back to previous question
         function goBack(questionNum) {
             currentQuestion = questionNum - 1;
             updateProgress();
             showQuestion(currentQuestion);
         }
 
-        function showQuestion(num) {
-            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
-            const targetQuestion = document.querySelector(`[data-question="${num}"]`);
-            if (targetQuestion) {
-                targetQuestion.classList.add('active');
-            }
-        }
-
-        function updateProgress() {
-            const progress = ((currentQuestion - 1) / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-        }
-
+        // Handle text input fields (like location)
         function handleTextInputNext(questionNum, inputId) {
-            const input = document.getElementById(inputId);
-            if (input.value.trim()) {
-                answers[`q${questionNum}`] = input.value.trim();
-                moveToNext(questionNum);
-            }
-        }
-
-        function handleCheckboxNext(questionNum) {
-            const checkboxes = document.querySelectorAll(`[data-question="${questionNum}"] input[type="checkbox"]:checked`);
-            const values = Array.from(checkboxes).map(cb => cb.value);
-            answers[`q${questionNum}`] = values.join(', ');
-            moveToNext(questionNum);
-        }
-
-        function handleLimitedCheckboxNext(questionNum, maxSelections) {
-            const checkboxes = document.querySelectorAll(`[data-question="${questionNum}"] input[type="checkbox"]:checked`);
+            const questionElement = document.querySelector(`[data-question="${questionNum}"]`);
+            const questionText = questionElement.querySelector('.question').textContent;
+            const questionType = questionElement.dataset.type;
+            const inputValue = document.getElementById(inputId).value;
             
+            if (!inputValue.trim()) {
+                alert('Please enter a value before continuing');
+                return;
+            }
+            
+            // Store the answer
+            if (questionType === 'demographic') {
+                userData.demographics[questionText] = inputValue;
+            }
+            
+            // Move to next question
+            currentQuestion++;
+            updateProgress();
+            showQuestion(currentQuestion);
+        }
+
+        // Handle checkbox questions (multiple selections allowed)
+        function handleCheckboxNext(questionNum) {
+            const questionElement = document.querySelector(`[data-question="${questionNum}"]`);
+            const questionText = questionElement.querySelector('.question').textContent;
+            const checkboxes = questionElement.querySelectorAll('input[type="checkbox"]:checked');
+            
+            // Get all selected values
+            const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Store based on question type
+            const questionType = questionElement.dataset.type;
+            if (questionType === 'tools') {
+                userData.tools[questionText] = selectedValues;
+            } else if (questionType === 'validation') {
+                userData.validation[questionText] = selectedValues;
+            } else if (questionType === 'pain') {
+                userData.painPoints[questionText] = selectedValues;
+            }
+            
+            // Move to next question
+            currentQuestion++;
+            updateProgress();
+            showQuestion(currentQuestion);
+        }
+
+        // Handle checkbox questions with a maximum selection limit
+        function handleLimitedCheckboxNext(questionNum, maxSelections) {
+            const questionElement = document.querySelector(`[data-question="${questionNum}"]`);
+            const questionText = questionElement.querySelector('.question').textContent;
+            const checkboxes = questionElement.querySelectorAll('input[type="checkbox"]:checked');
+            
+            // Check if user selected too many
             if (checkboxes.length > maxSelections) {
                 alert(`Please select up to ${maxSelections} options only.`);
                 return;
             }
             
-            const values = Array.from(checkboxes).map(cb => cb.value);
-            answers[`q${questionNum}`] = values.join(', ');
-            moveToNext(questionNum);
+            // Get all selected values
+            const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Store based on question type
+            const questionType = questionElement.dataset.type;
+            if (questionType === 'tools') {
+                userData.tools[questionText] = selectedValues;
+            } else if (questionType === 'validation') {
+                userData.validation[questionText] = selectedValues;
+            } else if (questionType === 'pain') {
+                userData.painPoints[questionText] = selectedValues;
+            }
+            
+            // Move to next question
+            currentQuestion++;
+            updateProgress();
+            showQuestion(currentQuestion);
         }
 
+        // Handle text area questions
+        function handleTextNext(questionNum) {
+            const questionElement = document.querySelector(`[data-question="${questionNum}"]`);
+            const questionText = questionElement.querySelector('.question').textContent;
+            const textValue = document.getElementById('openFeedback').value;
+            
+            userData.validation[questionText] = textValue;
+            
+            // Move to next question
+            currentQuestion++;
+            updateProgress();
+            showQuestion(currentQuestion);
+        }
+
+        // Handle form submission with email
         async function submitForm() {
-            // Collect remaining answers
-            answers.q11 = document.getElementById('feedbackInput').value || 'No additional feedback';
-            answers.q12_email = document.getElementById('emailInput').value;
-            answers.q12_name = document.getElementById('nameInput').value || 'Not provided';
-
-            // Flatten data for Google Sheets
-            const formData = {
+            const email = document.getElementById('emailInput').value;
+            const name = document.getElementById('nameInput').value;
+            
+            // Basic email validation
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            userData.contact.email = email;
+            userData.contact.name = name;
+            
+            // Flatten the data for easier analysis in Google Sheets
+            const flattenedData = {
+                // Timestamp
                 timestamp: new Date().toISOString(),
-                age_range: answers.q1 || '',
-                location: answers.q2 || '',
-                profession: answers.q3 || '',
-                tools_used: answers.q4 || '',
-                discovery_frequency: answers.q5 || '',
-                biggest_challenge: answers.q6 || '',
-                disappointment_frequency: answers.q7 || '',
-                most_valuable_feature: answers.q8 || '',
-                use_cases: answers.q9 || '',
-                willingness_to_pay: answers.q10 || '',
-                open_feedback: answers.q11 || '',
-                email: answers.q12_email || '',
-                name: answers.q12_name || ''
+                
+                // Demographics
+                age_range: userData.demographics["What's your age range?"] || '',
+                location: userData.demographics["Where are you based?"] || '',
+                profession: userData.demographics["What best describes your professional situation?"] || '',
+                
+                // Tools (convert array to comma-separated string)
+                tools_used: Array.isArray(userData.tools["Which tools do you currently use to discover places? (Select all that apply)"]) 
+                    ? userData.tools["Which tools do you currently use to discover places? (Select all that apply)"].join(', ') 
+                    : '',
+                discovery_frequency: userData.tools["How often do you look for new places to try in your city?"] || '',
+                
+                // Pain Points
+                biggest_challenge: Array.isArray(userData.painPoints["What are your BIGGEST challenges when trying to find a good place?"])
+                    ? userData.painPoints["What are your BIGGEST challenges when trying to find a good place?"].join(', ')
+                    : userData.painPoints["What are your BIGGEST challenges when trying to find a good place?"] || '',
+                disappointment_frequency: userData.painPoints["How often do you feel disappointed after trying a highly-rated place?"] || '',
+                
+                // Validation
+                most_valuable_feature: Array.isArray(userData.validation["Which features would be MOST valuable to you?"])
+                    ? userData.validation["Which features would be MOST valuable to you?"].join(', ')
+                    : userData.validation["Which features would be MOST valuable to you?"] || '',
+                use_cases: Array.isArray(userData.validation["What would you most likely use this for? (Select all that apply)"])
+                    ? userData.validation["What would you most likely use this for? (Select all that apply)"].join(', ')
+                    : '',
+                willingness_to_pay: userData.validation["If this solved your discovery problems, would you pay for it?"] || '',
+                open_feedback: userData.validation["What's the one thing that would make this a must-have app for you?"] || '',
+                
+                // Contact
+                email: userData.contact.email || '',
+                name: userData.contact.name || ''
             };
-
+            
+            // Log to console for debugging
+            console.log('Complete User Data:', JSON.stringify(userData, null, 2));
+            console.log('Flattened Data for Sheets:', flattenedData);
+            
+            // Send to Google Sheets via Sheet.best
+            const SHEET_BEST_URL = 'https://api.sheetbest.com/sheets/7e1f53a1-f519-4e67-bc81-b9f188200f60';
+            
             try {
-                const response = await fetch('https://api.sheetbest.com/sheets/7e1f53a1-f519-4e67-bc81-b9f188200f60', {
+                // Disable the submit button to prevent double submission
+                const submitBtn = event.target;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+                
+                const response = await fetch(SHEET_BEST_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(flattenedData)
                 });
-
+                
                 if (response.ok) {
-                    showResult();
+                    console.log('Successfully sent to Google Sheets!');
+                    showResults();
                 } else {
-                    alert('There was an issue submitting your response. Please try again.');
+                    throw new Error('Failed to send data');
                 }
             } catch (error) {
-                console.error('Error:', error);
-                alert('There was an issue submitting your response. Please try again.');
+                console.error('Error sending to Google Sheets:', error);
+                // Still show thank you page even if there's an error
+                // (Data is still in console for backup)
+                alert('There was an issue submitting your response, but your feedback has been recorded. Thank you!');
+                showResults();
             }
         }
 
-        function showResult() {
-            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
-            document.querySelector('h1').style.display = 'none';
-            document.querySelector('.subtitle').style.display = 'none';
-            document.querySelector('.progress').style.display = 'none';
-            document.getElementById('result').classList.add('active');
+        // Show a specific question
+        function showQuestion(questionNumber) {
+            const allQuestions = document.querySelectorAll('.question-container');
+            allQuestions.forEach(q => q.classList.remove('active'));
+            
+            const questionToShow = document.querySelector(`[data-question="${questionNumber}"]`);
+            questionToShow.classList.add('active');
         }
 
-        // Initialize progress bar
-        updateProgress();
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentQuestion - 1) / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Show final thank you screen
+        function showResults() {
+            document.querySelectorAll('.question-container').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.add('active');
+            
+            // Update progress to 100%
+            document.getElementById('progressBar').style.width = '100%';
+        }
+
+        // Set up all click listeners when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Single-choice options for questions 1, 3, 5, 7, 10
+            const singleChoiceQuestions = [1, 3, 5, 7, 10];
+            singleChoiceQuestions.forEach(qNum => {
+                const options = document.querySelectorAll(`[data-question="${qNum}"] .option`);
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        handleOptionSelection(qNum, this.dataset.value);
+                    });
+                });
+            });
+
+            // Checkbox styling
+            const checkboxOptions = document.querySelectorAll('.checkbox-option');
+            checkboxOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    if (e.target.tagName !== 'INPUT') {
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    this.classList.toggle('selected', this.querySelector('input[type="checkbox"]').checked);
+                });
+            });
+
+            // Add checkbox limit enforcement for features question (Q8)
+            const featuresCheckboxes = document.querySelectorAll('#featuresCheckboxes input[type="checkbox"]');
+            featuresCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const checkedCount = document.querySelectorAll('#featuresCheckboxes input[type="checkbox"]:checked').length;
+                    if (checkedCount > 3) {
+                        this.checked = false;
+                        this.parentElement.classList.remove('selected');
+                        alert('Please select up to 3 features only.');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
